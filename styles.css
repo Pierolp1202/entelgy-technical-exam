@@ -85,6 +85,7 @@ footer{
     background-color: var(--color-bg-secondary);
     border-radius: 0.375rem;
     height: 400px;
+    background-color: #ffffff;
 }
 
 .card > img {
