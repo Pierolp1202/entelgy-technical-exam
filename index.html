@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <!-- <script src="card-component.js" type="module"></script> -->
     <title>API Paises</title>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="container navbar-content">
             <h1>API PAISES</h1>
@@ -16,102 +18,72 @@
         </div>
         </div>
     </nav>
-    <header></header>
-    <main class="container grid spacing" id="banderas">
-        <div class="card">
+
+    <!-- Main content -->
+    <main class="container grid spacing mainFlex" id="countries">
+        <!-- <div class="card">
+            <img src="${this.flags}">
+            <div class="card-content">
+               <h3>Nombre de Pais: ${this.name}</h3>
+               <button onClick="openModal()" id="myBtn">Mas info</button>
+           </div>
+         </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p><strong>Continente: </strong>${this.continents}</p>
+                <p><strong>Capital: </strong>${this.capital}</p>
+            </div>
+        </div> -->
+        <!-- <div class="card">
             <img src="">
             <div class="card-content">
-                <h3>Pais nombre</h3>
+                <p><strong>Nombre: </strong>Peru</p>
                 <button>Mas info</button>
             </div>
         </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
+
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p><strong>Continente: </strong>America</p>
+                <p><strong>Moneda: </strong>Sol</p>
             </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="">
-            <div class="card-content">
-                <h3>Pais nombre</h3>
-                <button>Mas info</button>
-            </div>
-        </div>
+        </div> -->
+
         <!-- webcomponent -->
-        
+    <script>
+        // SCRIPT PARA MODAL
+            var modal = document.getElementById("modal");
+            var btn = document.getElementById("myBtn");
+            var span = document.getElementsByClassName("close")[0];
+
+            // Abre modal
+            function openModal() {
+            modal.style.display = "block";
+            }
+
+            // al apretar x, lo cierra
+            span.onclick = function () {
+            modal.style.display = "none";
+            };
+
+            // Si da click fuera, se cierra
+            window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            };
+    </script>
 
     </main>
     <footer class="site-footer">
         <div class="container">
-            <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by <a href="#">Piero Loza</a>.</p>
+            <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by <a href="#">Piero Loza</a>.</p>
         </div>  
     </footer>
-    <!-- <div id="app"></div> -->
-    <script src="index.js"></script>
+
+    <script src="index.js" type="module"></script>
+    
 </body>
 </html>
