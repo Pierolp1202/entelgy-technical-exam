@@ -1,48 +1,57 @@
-// const API_URL = "https://restcountries.com/v3.1/lang/spa";
+const API_URL = "https://restcountries.com/v3.1/lang/spa";
+import "./card-component.js";
 
-// const xhr = new XMLHttpRequest();
+// // GLOBAL VARIABLES
+// let countries;
 
-// function onRequestHandler() {
-//   if (this.readyState === 4 && this.status === 200) {
-//     //   UNSET, no se ha llamado al metodo open // 0
-//     //   OPENED, se ha llamado al metodo open.
-//     //   HEADERS RECEIVED, se está llamando al metodo send ()
-//     //   DONE, se ha completado la operación.
-//     const data = JSON.parse(this.response);
-//     const HTMLResponse = document.querySelector("#app");
-//     const tpl = data.map((country) => `<li>${country.name.common}  </li>`);
-//     HTMLResponse.innerHTML = `<div>${tpl}</div>`;
+// fetch("https://restcountries.com/v3.1/lang/spa")
+//   .then((res) => res.json())
+//   .then((data) => initialize(data))
+//   .catch((err) => console.log("Error: ", err));
+
+// const main = document.querySelector("main");
+
+// function initialize(countriesData) {
+//   countries = countriesData;
+//   for (var i = 0; i < countries.length; i++) {
+//     console.log(countries[i].continents[0]);
+//     const el = document.createElement("card-component");
+//     el.setAttribute("flags", `${countries[i].flags.png}`);
+//     el.setAttribute("name", `${countries[i].name.common}`);
+//     el.setAttribute("continents", `${countries[i].continents[0]}`);
+//     el.setAttribute("capital", `${countries[i].continents[0]}`);
+//     main.appendChild(el);
 //   }
 // }
 
-// fetch("https://restcountries.com/v3.1/lang/spa")
-//   .then(function (res) {
-//     //console.log(res);
-//     return res.json();
-//   })
-//   .then(function (data) {
-//     //console.log(data);
-//     initialize(data);
-//   })
-//   .catch(function () {
-//     console.log("Error: ", err);
-//   });
+window.addEventListener("load", () => {
+  fetchCountries();
+});
 
-//GLOBAL VARIABLES
+async function fetchCountries() {
+  const res = await fetch(API_URL);
+  const json = await res.json();
 
-let countries;
-
-fetch("https://restcountries.com/v3.1/lang/spa")
-  .then((res) => res.json())
-  .then((data) => initialize(data))
-  .catch((err) => console.log("Error: ", err));
-
-function initialize(countriesData) {
-  countries = countriesData;
-  console.log(countries[0].name.common);
-  //console.log(countriesData);
+  const main = document.querySelector("main");
+  console.log(json.length);
+  json.forEach((country) => {
+    const el = document.createElement("card-component");
+    el.country = country;
+    main.appendChild(el);
+    console.log(el);
+  });
+  // for (let i = 0; i < Object.keys(json.length); i++) {
+  //   // console.log(json[i]);
+  //   const el = document.createElement("card-component");
+  //   el.country = el;
+  //   // console.log(el.country);
+  //   main.appendChild(el);
+  // }
+  // json.forEach((country) => {
+  //   const element = document.createElement("card-component");
+  //   console.log(element);
+  //   element = country;
+  //   main.appendChild(element);
+  // });
+  // console.log(json);
 }
-
-// setTimeout(() => {
-//   console.log(countries);
-// }, 500);
