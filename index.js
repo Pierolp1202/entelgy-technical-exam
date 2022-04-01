@@ -1,6 +1,25 @@
 const API_URL = "https://restcountries.com/v3.1/lang/spa";
 import "./card-component.js";
 
+window.addEventListener("load", () => {
+  fetchCountries();
+});
+
+async function fetchCountries() {
+  const res = await fetch(API_URL);
+  const json = await res.json();
+
+  const main = document.querySelector("main");
+  // console.log(json.length);
+  json.forEach((country) => {
+    const el = document.createElement("card-component");
+    el.country = country;
+    main.appendChild(el);
+    // console.log(el);
+  });
+}
+
+//OTRA VERSION
 // // GLOBAL VARIABLES
 // let countries;
 
@@ -23,35 +42,3 @@ import "./card-component.js";
 //     main.appendChild(el);
 //   }
 // }
-
-window.addEventListener("load", () => {
-  fetchCountries();
-});
-
-async function fetchCountries() {
-  const res = await fetch(API_URL);
-  const json = await res.json();
-
-  const main = document.querySelector("main");
-  console.log(json.length);
-  json.forEach((country) => {
-    const el = document.createElement("card-component");
-    el.country = country;
-    main.appendChild(el);
-    console.log(el);
-  });
-  // for (let i = 0; i < Object.keys(json.length); i++) {
-  //   // console.log(json[i]);
-  //   const el = document.createElement("card-component");
-  //   el.country = el;
-  //   // console.log(el.country);
-  //   main.appendChild(el);
-  // }
-  // json.forEach((country) => {
-  //   const element = document.createElement("card-component");
-  //   console.log(element);
-  //   element = country;
-  //   main.appendChild(element);
-  // });
-  // console.log(json);
-}
